@@ -17,4 +17,9 @@ public class FreeBoardServiceImpl implements FreeBoardService {
   public List<BoardInfo> getFreeBoardList() {
     return freeBoardRepository.findAll();
   }
+
+  @Override
+  public List<BoardInfo> getUserPost(String username) {
+    return freeBoardRepository.findByUserName(username);
+  }
 }

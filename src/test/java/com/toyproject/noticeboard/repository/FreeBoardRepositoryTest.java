@@ -15,7 +15,7 @@ class FreeBoardRepositoryTest {
   FreeBoardRepository freeBoardRepository;
 
   @Test
-  public void showFreeBoardList() {
+  public void findAll() {
     freeBoardRepository.save(BoardInfo.builder()
         .id("id01")
         .title("title1")
@@ -33,4 +33,11 @@ class FreeBoardRepositoryTest {
     System.out.println(freeboardList);
   }
 
+  @Test
+  public void findByUserName() {
+    String username = "yunha";
+
+    List<BoardInfo> freeboardList = freeBoardRepository.findByUserName(username);
+    System.out.println(freeboardList);
+  }
 }

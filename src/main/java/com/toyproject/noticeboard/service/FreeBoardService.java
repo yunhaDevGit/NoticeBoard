@@ -6,4 +6,6 @@ import java.util.List;
 public interface FreeBoardService {
 
   List<BoardInfo> getFreeBoardList();
+
+  List<BoardInfo> getUserPost(String username);
 }
