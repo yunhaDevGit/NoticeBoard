@@ -8,5 +8,5 @@ public interface FreeBoardRepository extends JpaRepository<Board, String> {
 
   List<Board> findAll();
 
-  List<Board> findByUserName(String username);
+  List<Board> findByUsername(String username);
 }

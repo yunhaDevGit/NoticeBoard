@@ -17,13 +17,13 @@ class FreeBoardRepositoryTest {
     freeBoardRepository.save(Board.builder()
         .id("id01")
         .title("title1")
-        .userName("yunha")
+        .username("yunha")
         .text("hello")
         .build());
     freeBoardRepository.save(Board.builder()
         .id("id02")
         .title("title2")
-        .userName("jeong")
+        .username("jeong")
         .text("hi")
         .build());
 
@@ -35,7 +35,7 @@ class FreeBoardRepositoryTest {
   public void findByUserName() {
     String username = "yunha";
 
-    List<Board> freeboardList = freeBoardRepository.findByUserName(username);
+    List<Board> freeboardList = freeBoardRepository.findByUsername(username);
     System.out.println(freeboardList);
   }
 }

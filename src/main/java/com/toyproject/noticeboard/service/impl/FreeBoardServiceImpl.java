@@ -20,6 +20,6 @@ public class FreeBoardServiceImpl implements FreeBoardService {
 
   @Override
   public List<Board> getUserPost(String username) {
-    return freeBoardRepository.findByUserName(username);
+    return freeBoardRepository.findByUsername(username);
   }
 }
