@@ -9,11 +9,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
+@Entity(name = "user")
 @Data
-@Table(name = "user")
 @NoArgsConstructor
-public class UserInfo {
+public class User {
 
   @Id
   private String id;
@@ -25,7 +24,7 @@ public class UserInfo {
   private Role role;
 
   @Builder
-  public UserInfo(String id, String username, String password, String email, String contact, Role role) {
+  public User(String id, String username, String password, String email, String contact, Role role) {
     this.id = id;
     this.username = username;
     this.password = password;

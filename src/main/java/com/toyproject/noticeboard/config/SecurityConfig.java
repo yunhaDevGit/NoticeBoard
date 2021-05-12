@@ -1,6 +1,6 @@
 package com.toyproject.noticeboard.config;
 
-import com.toyproject.noticeboard.utils.PasswordEncoderFactories;
+import com.toyproject.noticeboard.utils.DefaultPasswordEncoderFactories;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -12,11 +12,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled = true)
-public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
   @Bean
   public PasswordEncoder passwordEncoder() {
-    return PasswordEncoderFactories.createDelegatingPasswordEncoder();
+    return DefaultPasswordEncoderFactories.createDelegatingPasswordEncoder();
   }
 
   @Override
@@ -24,12 +24,13 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     http.csrf().disable();
     http
         .authorizeRequests()
-          .antMatchers("/write").authenticated()
-          .anyRequest().permitAll()
+        .antMatchers("/write").authenticated()
+        .anyRequest().permitAll()
         .and()
-          .formLogin()
-          .loginProcessingUrl("/login")
-          .defaultSuccessUrl("/");
+        .formLogin()
+        .loginPage("/loginForm")
+        .loginProcessingUrl("/login")
+        .defaultSuccessUrl("/");
 
 
   }

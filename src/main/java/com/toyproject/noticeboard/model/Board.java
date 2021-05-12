@@ -10,11 +10,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
+@Entity(name = "board")
 @Data
-@Table(name = "board")
 @NoArgsConstructor
-public class BoardInfo {
+public class Board {
 
   @Id
   private String id;
@@ -29,7 +28,7 @@ public class BoardInfo {
   private Date updatedAt;
 
   @Builder
-  public BoardInfo(String id, String title, String userName, String text, Date createdAt,
+  public Board(String id, String title, String userName, String text, Date createdAt,
       Date updatedAt) {
     this.id = id;
     this.title = title;

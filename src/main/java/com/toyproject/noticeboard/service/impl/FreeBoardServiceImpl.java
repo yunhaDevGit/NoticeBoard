@@ -1,6 +1,6 @@
 package com.toyproject.noticeboard.service.impl;
 
-import com.toyproject.noticeboard.model.BoardInfo;
+import com.toyproject.noticeboard.model.Board;
 import com.toyproject.noticeboard.repository.FreeBoardRepository;
 import com.toyproject.noticeboard.service.FreeBoardService;
 import java.util.List;
@@ -14,12 +14,12 @@ public class FreeBoardServiceImpl implements FreeBoardService {
   FreeBoardRepository freeBoardRepository;
 
   @Override
-  public List<BoardInfo> getFreeBoardList() {
+  public List<Board> getFreeBoardList() {
     return freeBoardRepository.findAll();
   }
 
   @Override
-  public List<BoardInfo> getUserPost(String username) {
+  public List<Board> getUserPost(String username) {
     return freeBoardRepository.findByUserName(username);
   }
 }

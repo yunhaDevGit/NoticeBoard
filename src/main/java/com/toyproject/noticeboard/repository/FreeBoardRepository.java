@@ -1,12 +1,12 @@
 package com.toyproject.noticeboard.repository;
 
-import com.toyproject.noticeboard.model.BoardInfo;
+import com.toyproject.noticeboard.model.Board;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface FreeBoardRepository extends JpaRepository<BoardInfo, String> {
+public interface FreeBoardRepository extends JpaRepository<Board, String> {
 
-  List<BoardInfo> findAll();
+  List<Board> findAll();
 
-  List<BoardInfo> findByUserName(String username);
+  List<Board> findByUserName(String username);
 }

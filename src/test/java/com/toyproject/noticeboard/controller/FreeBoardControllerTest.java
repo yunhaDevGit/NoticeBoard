@@ -1,8 +1,6 @@
 package com.toyproject.noticeboard.controller;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import com.toyproject.noticeboard.model.BoardInfo;
+import com.toyproject.noticeboard.model.Board;
 import com.toyproject.noticeboard.repository.FreeBoardRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +14,12 @@ class FreeBoardControllerTest {
 
   @Test
   public void postBoard(){
-    BoardInfo boardInfo = new BoardInfo();
-    boardInfo.setId("testId");
-    boardInfo.setText("testText");
-    boardInfo.setTitle("testTitle");
-    boardInfo.setUserName("yunha");
+    Board board = new Board();
+    board.setId("testId");
+    board.setText("testText");
+    board.setTitle("testTitle");
+    board.setUserName("yunha");
 
-    freeBoardRepository.save(boardInfo);
+    freeBoardRepository.save(board);
   }
 }

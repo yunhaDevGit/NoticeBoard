@@ -1,6 +1,6 @@
 package com.toyproject.noticeboard.controller;
 
-import com.toyproject.noticeboard.model.BoardInfo;
+import com.toyproject.noticeboard.model.Board;
 import com.toyproject.noticeboard.repository.FreeBoardRepository;
 import com.toyproject.noticeboard.service.FreeBoardService;
 import java.util.List;
@@ -27,20 +27,20 @@ public class FreeBoardController {
 
   @GetMapping("/list/all")
   @ResponseBody
-  public List<BoardInfo> getFreeBoardList(){
+  public List<Board> getFreeBoardList(){
     return freeBoardService.getFreeBoardList();
   }
 
   @GetMapping("/list/user")
   @ResponseBody
-  public List<BoardInfo> getUser
+  public List<Board> getUser
       (@RequestParam String username){
     return freeBoardService.getUserPost(username);
   }
 
   @PostMapping("/write")
   @ResponseBody
-  public BoardInfo postBoard(@RequestBody BoardInfo boardInfo){
-    return freeBoardRepository.save(boardInfo);
+  public Board postBoard(@RequestBody Board board){
+    return freeBoardRepository.save(board);
   }
 }

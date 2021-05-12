@@ -1,8 +1,6 @@
 package com.toyproject.noticeboard.repository;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import com.toyproject.noticeboard.model.BoardInfo;
+import com.toyproject.noticeboard.model.Board;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,20 +14,20 @@ class FreeBoardRepositoryTest {
 
   @Test
   public void findAll() {
-    freeBoardRepository.save(BoardInfo.builder()
+    freeBoardRepository.save(Board.builder()
         .id("id01")
         .title("title1")
         .userName("yunha")
         .text("hello")
         .build());
-    freeBoardRepository.save(BoardInfo.builder()
+    freeBoardRepository.save(Board.builder()
         .id("id02")
         .title("title2")
         .userName("jeong")
         .text("hi")
         .build());
 
-    List<BoardInfo> freeboardList = freeBoardRepository.findAll();
+    List<Board> freeboardList = freeBoardRepository.findAll();
     System.out.println(freeboardList);
   }
 
@@ -37,7 +35,7 @@ class FreeBoardRepositoryTest {
   public void findByUserName() {
     String username = "yunha";
 
-    List<BoardInfo> freeboardList = freeBoardRepository.findByUserName(username);
+    List<Board> freeboardList = freeBoardRepository.findByUserName(username);
     System.out.println(freeboardList);
   }
 }
