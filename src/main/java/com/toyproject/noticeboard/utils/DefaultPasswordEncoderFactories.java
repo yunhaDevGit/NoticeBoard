@@ -15,7 +15,7 @@ public class DefaultPasswordEncoderFactories {
   public static PasswordEncoder createDelegatingPasswordEncoder() {
     Map<String, PasswordEncoder> encoders = new HashMap<>();
     String encodingId = "SHA-256";
-    encoders.put(encodingId, new BCryptPasswordEncoder());
+    encoders.put("bcrypt", new BCryptPasswordEncoder());
     encoders.put("ldap", new org.springframework.security.crypto.password.LdapShaPasswordEncoder());
     encoders.put("MD4", new org.springframework.security.crypto.password.Md4PasswordEncoder());
     encoders.put("MD5", new org.springframework.security.crypto.password.MessageDigestPasswordEncoder("MD5"));
