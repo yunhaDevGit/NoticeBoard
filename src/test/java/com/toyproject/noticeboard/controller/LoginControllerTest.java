@@ -1,6 +1,6 @@
 package com.toyproject.noticeboard.controller;
 
-import com.toyproject.noticeboard.model.Role;
+import com.toyproject.noticeboard.utils.Role;
 import com.toyproject.noticeboard.model.User;
 import com.toyproject.noticeboard.repository.UserRepository;
 import org.junit.jupiter.api.Test;

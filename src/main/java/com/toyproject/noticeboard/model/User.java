@@ -1,10 +1,8 @@
 package com.toyproject.noticeboard.model;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+
+import com.toyproject.noticeboard.utils.Role;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,6 +14,8 @@ public class User {
 
   @Id
   private String id;
+
+  @Column(unique = true)
   private String username;
   private String password;
   private String email;
