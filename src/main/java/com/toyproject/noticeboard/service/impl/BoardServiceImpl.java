@@ -1,25 +1,25 @@
 package com.toyproject.noticeboard.service.impl;
 
 import com.toyproject.noticeboard.model.Board;
-import com.toyproject.noticeboard.repository.FreeBoardRepository;
-import com.toyproject.noticeboard.service.FreeBoardService;
+import com.toyproject.noticeboard.repository.BoardRepository;
+import com.toyproject.noticeboard.service.BoardService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class FreeBoardServiceImpl implements FreeBoardService {
+public class BoardServiceImpl implements BoardService {
 
   @Autowired
-  FreeBoardRepository freeBoardRepository;
+  BoardRepository boardRepository;
 
   @Override
   public List<Board> getFreeBoardList() {
-    return freeBoardRepository.findAll();
+    return boardRepository.findAll();
   }
 
   @Override
   public List<Board> getUserPost(String username) {
-    return freeBoardRepository.findByUsername(username);
+    return boardRepository.findByUser(username);
   }
 }

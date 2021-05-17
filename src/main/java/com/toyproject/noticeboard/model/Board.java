@@ -15,7 +15,11 @@ public class Board {
   @Id
   private String id;
   private String title;
-  private String username;
+
+  @ManyToOne
+  @JoinColumn(name = "username")
+  private User user;
+
   @Lob
   private String text;
 
@@ -24,11 +28,11 @@ public class Board {
   private LocalDateTime updatedAt;
 
   @Builder
-  public Board(String id, String title, String username, String text, LocalDateTime createdAt,
+  public Board(String id, String title, User user, String text, LocalDateTime createdAt,
                LocalDateTime updatedAt) {
     this.id = id;
     this.title = title;
-    this.username = username;
+    this.user = user;
     this.text = text;
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;

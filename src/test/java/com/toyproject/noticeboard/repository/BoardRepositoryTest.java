@@ -1,33 +1,37 @@
 package com.toyproject.noticeboard.repository;
 
 import com.toyproject.noticeboard.model.Board;
+import com.toyproject.noticeboard.model.User;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class FreeBoardRepositoryTest {
+class BoardRepositoryTest {
 
   @Autowired
-  FreeBoardRepository freeBoardRepository;
+  BoardRepository boardRepository;
 
   @Test
   public void findAll() {
-    freeBoardRepository.save(Board.builder()
+    User user = new User();
+    user.setUsername("yunha");
+
+    boardRepository.save(Board.builder()
         .id("id01")
         .title("title1")
-        .username("yunha")
+        .user(user)
         .text("hello")
         .build());
-    freeBoardRepository.save(Board.builder()
+    boardRepository.save(Board.builder()
         .id("id02")
         .title("title2")
-        .username("jeong")
+        .user(user)
         .text("hi")
         .build());
 
-    List<Board> freeboardList = freeBoardRepository.findAll();
+    List<Board> freeboardList = boardRepository.findAll();
     System.out.println(freeboardList);
   }
 
@@ -35,7 +39,7 @@ class FreeBoardRepositoryTest {
   public void findByUserName() {
     String username = "yunha";
 
-    List<Board> freeboardList = freeBoardRepository.findByUsername(username);
+    List<Board> freeboardList = boardRepository.findByUser(username);
     System.out.println(freeboardList);
   }
 }

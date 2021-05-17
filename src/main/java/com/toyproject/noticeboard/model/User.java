@@ -9,13 +9,16 @@ import lombok.NoArgsConstructor;
 
 @Entity(name = "user")
 @Data
+@Table(uniqueConstraints = {@UniqueConstraint(name = "username_unique", columnNames = "username")})
 @NoArgsConstructor
 public class User {
 
   @Id
+  @Column(name = "user_id")
   private String id;
 
-  @Column(unique = true) // unique 속성 잘 안쓴다. 제약조건 생성 시 이름 이상하게 만들어줘서 구분하기 힘들기 때문
+//  @Column(unique = true) // unique 속성 잘 안쓴다. 제약조건 생성 시 이름 이상하게 만들어줘서 구분하기 힘들기 때문
+  @Column(name = "username",nullable = false)
   private String username;
   private String password;
   private String email;
