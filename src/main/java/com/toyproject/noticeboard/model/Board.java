@@ -1,10 +1,8 @@
 package com.toyproject.noticeboard.model;
 
-import java.util.Date;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import java.time.LocalDateTime;
+import javax.persistence.*;
+
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,17 +16,16 @@ public class Board {
   private String id;
   private String title;
   private String username;
+  @Lob
   private String text;
 
-  @Temporal(TemporalType.TIMESTAMP)
-  private Date createdAt;
+  private LocalDateTime createdAt;
 
-  @Temporal(TemporalType.TIMESTAMP)
-  private Date updatedAt;
+  private LocalDateTime updatedAt;
 
   @Builder
-  public Board(String id, String title, String username, String text, Date createdAt,
-      Date updatedAt) {
+  public Board(String id, String title, String username, String text, LocalDateTime createdAt,
+               LocalDateTime updatedAt) {
     this.id = id;
     this.title = title;
     this.username = username;

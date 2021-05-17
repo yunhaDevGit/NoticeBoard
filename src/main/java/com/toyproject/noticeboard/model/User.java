@@ -15,7 +15,7 @@ public class User {
   @Id
   private String id;
 
-  @Column(unique = true)
+  @Column(unique = true) // unique 속성 잘 안쓴다. 제약조건 생성 시 이름 이상하게 만들어줘서 구분하기 힘들기 때문
   private String username;
   private String password;
   private String email;
