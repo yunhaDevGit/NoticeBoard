@@ -17,7 +17,7 @@ public class Board {
   private String title;
 
   @ManyToOne
-  @JoinColumn(name = "username")
+  @JoinColumn(name = "user_id", referencedColumnName = "username")
   private User user;
 
   @Lob

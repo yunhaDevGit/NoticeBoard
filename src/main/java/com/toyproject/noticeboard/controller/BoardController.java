@@ -4,7 +4,9 @@ import com.toyproject.noticeboard.model.Board;
 import com.toyproject.noticeboard.model.User;
 import com.toyproject.noticeboard.repository.BoardRepository;
 import com.toyproject.noticeboard.service.BoardService;
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,11 +42,18 @@ public class BoardController {
     return boardService.getUserPost(username);
   }
 
-  @PostMapping("/write")
+  @GetMapping("/write")
+  public String writeBoard(){
+    return "write";
+  }
+
+  @PostMapping("/post")
   @ResponseBody
-  public Board postBoard(@RequestBody Board board, HttpSession httpSession){
+  public Board postBoard(Board board, HttpSession httpSession){
     User user = (User) httpSession.getAttribute("user");
     board.setUser(user);
+    board.setId(String.valueOf(UUID.randomUUID()));
+    board.setCreatedAt(LocalDateTime.now());
     return boardRepository.save(board);
   }
 }
