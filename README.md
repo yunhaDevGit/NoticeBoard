@@ -37,3 +37,7 @@
   - 삭제
 - 댓글 + 대댓글
 - 액션 증적 (감사 기록 관리)
+
+#### DB 구조
+![img](https://user-images.githubusercontent.com/74949294/118816020-c0b7dd80-b8ec-11eb-99fe-dcf1e322697c.PNG)
+
