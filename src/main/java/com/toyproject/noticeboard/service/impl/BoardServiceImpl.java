@@ -1,6 +1,7 @@
 package com.toyproject.noticeboard.service.impl;
 
 import com.toyproject.noticeboard.model.Board;
+import com.toyproject.noticeboard.model.Post;
 import com.toyproject.noticeboard.repository.BoardRepository;
 import com.toyproject.noticeboard.service.BoardService;
 import java.util.List;
@@ -13,13 +14,9 @@ public class BoardServiceImpl implements BoardService {
   @Autowired
   BoardRepository boardRepository;
 
-  @Override
-  public List<Board> getFreeBoardList() {
-    return boardRepository.findAll();
-  }
 
   @Override
-  public List<Board> getUserPost(String username) {
-    return boardRepository.findByUser(username);
+  public Board getBoardByCategory(String category) {
+    return boardRepository.findByCategory(category);
   }
 }

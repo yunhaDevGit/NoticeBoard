@@ -26,26 +26,13 @@ class BoardControllerTest {
   UserRepository userRepository;
 
   @Test
-  public void getFreeBoardList(){
-    List<Board> boardList = boardService.getFreeBoardList();
-    for(Board board : boardList){
-      System.out.println("==============");
-      System.out.println(board);
-    }
-  }
-
-  @Test
-  public void postBoard(){
-
-    User user = userRepository.findByUsername("user01");
+  public void newBoard(){
 
     Board board = new Board();
     board.setId(String.valueOf(UUID.randomUUID()));
-    board.setText("testsetset");
-    board.setTitle("setstes");
-    board.setCreatedAt(LocalDateTime.now());
-    board.setUser(user);
-
+    board.setCategory("FreeBoard");
     boardRepository.save(board);
   }
+
+
 }
