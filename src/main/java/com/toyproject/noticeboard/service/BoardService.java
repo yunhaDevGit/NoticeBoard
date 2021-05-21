@@ -8,4 +8,5 @@ public interface BoardService {
 
   Board getBoardByCategory(String category);
 
+  Board saveBoard(Board board);
 }
