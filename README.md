@@ -5,7 +5,7 @@
 #### **기술 스택**
 
 - Spring Boot
-- JPA (Hibernate/Spring data JPA)
+- JPA (Hibernate/Spring data JPA) + QueryDSL
 - RDB
 - Swagger
 - Spring Security / JWT / OAuth2.0 + SSO
