@@ -1,7 +1,6 @@
 package com.toyproject.noticeboard.controller;
 
 import com.toyproject.noticeboard.model.Board;
-import com.toyproject.noticeboard.repository.BoardRepository;
 import com.toyproject.noticeboard.service.BoardService;
 
 import java.util.List;
@@ -24,15 +23,15 @@ public class BoardController {
     return boardService.getBoardList();
   }
 
-  @GetMapping("/newBoard")
+  @GetMapping("/board/create")
   public String newBoard(){
     return "newBoard";
   }
 
-  @PostMapping("/newBoard")
-  public Board newBoard(Board board){
+  @PostMapping("/board/create")
+  public Board createBoard(Board board){
     board.setId(String.valueOf(UUID.randomUUID()));
-    return boardService.saveBoard(board);
+    return boardService.createBoard(board);
   }
 
   @DeleteMapping("/board/delete/{id}")

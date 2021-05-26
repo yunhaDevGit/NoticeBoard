@@ -8,7 +8,7 @@ public interface BoardService {
 
   Board getBoardByCategory(String category);
 
-  Board saveBoard(Board board);
+  Board createBoard(Board board);
 
   void deleteBoard(String id);
 

@@ -20,7 +20,7 @@ public class BoardServiceImpl implements BoardService {
   }
 
   @Override
-  public Board saveBoard(Board board) {
+  public Board createBoard(Board board) {
     return boardRepository.save(board);
   }
 
