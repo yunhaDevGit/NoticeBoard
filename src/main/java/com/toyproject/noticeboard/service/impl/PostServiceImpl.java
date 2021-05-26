@@ -25,8 +25,10 @@ public class PostServiceImpl implements PostService {
     return postRepository.findAll();
   }
 
+  @Transactional
   @Override
   public List<Post> getPostListInCategory(Board board) {
+    board.setId(boardService.getBoardByCategory(board.getCategory()).getId());
     return postRepository.findByBoard(board);
   }
 
