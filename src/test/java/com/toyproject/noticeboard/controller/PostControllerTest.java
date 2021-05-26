@@ -13,12 +13,11 @@ import java.util.UUID;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.core.parameters.P;
 
 @SpringBootTest
 class PostControllerTest {
 
-  @Autowired
-  PostRepository postRepository;
   @Autowired
   PostService postService;
   @Autowired
@@ -28,12 +27,15 @@ class PostControllerTest {
 
   @Test
   void getPostList() {
+    List<Post> posts = postService.getPostList();
+    for (Post post:posts)
+      System.out.println(post);
   }
 
   @Test
   void getPostListInCategory() {
 
-    Board board = boardRepository.findByCategory("FreeBoard");
+    Board board = boardRepository.findByCategory("free");
 
     List<Post> posts = postService.getPostListInCategory(board);
     for(Post post : posts){

@@ -28,6 +28,7 @@ public class PostServiceImpl implements PostService {
   @Transactional
   @Override
   public List<Post> getPostListInCategory(Board board) {
+    // 이 부분을 조금 더 깔끔하게 구현하고 싶은데,,,
     board.setId(boardService.getBoardByCategory(board.getCategory()).getId());
     return postRepository.findByBoard(board);
   }
