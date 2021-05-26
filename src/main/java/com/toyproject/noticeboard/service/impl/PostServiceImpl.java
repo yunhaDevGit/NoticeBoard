@@ -39,9 +39,7 @@ public class PostServiceImpl implements PostService {
   @Override
   public Post savePost(Post post) {
     Board board = boardService.getBoardByCategory(post.getBoard().getCategory());
-    board.setPostCount(board.getPostCount()+1);
     post.setBoard(board);
-
     return postRepository.save(post);
   }
 }

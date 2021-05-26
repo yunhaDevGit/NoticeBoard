@@ -1,5 +1,6 @@
 package com.toyproject.noticeboard.controller;
 
+import com.toyproject.noticeboard.service.UserService;
 import com.toyproject.noticeboard.utils.Role;
 import com.toyproject.noticeboard.model.User;
 import com.toyproject.noticeboard.repository.UserRepository;
@@ -16,7 +17,7 @@ public class LoginController {
   private PasswordEncoder passwordEncoder;
 
   @Autowired
-  private UserRepository userRepository;
+  private UserService userService;
 
   @GetMapping("/loginForm")
   public String loginForm() {
@@ -30,10 +31,9 @@ public class LoginController {
 
   @PostMapping("/join")
   public String join(User user) {
-
     user.setPassword(passwordEncoder.encode(user.getPassword()));
     user.setRole(Role.ROLE_USER);
-    userRepository.save(user);
+    userService.joinUser(user);
     return "redirect:/loginForm";
   }
 }

@@ -14,8 +14,6 @@ public class BoardController {
 
   @Autowired
   BoardService boardService;
-  @Autowired
-  BoardRepository boardRepository;
 
   @GetMapping("/test")
   public String test() {
@@ -31,7 +29,7 @@ public class BoardController {
   @PostMapping("/newBoard")
   public Board newBoard(Board board){
     board.setId(String.valueOf(UUID.randomUUID()));
-    return boardRepository.save(board);
+    return boardService.saveBoard(board);
   }
 
 }

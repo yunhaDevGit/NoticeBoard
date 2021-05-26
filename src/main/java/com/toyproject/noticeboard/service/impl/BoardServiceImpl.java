@@ -14,9 +14,13 @@ public class BoardServiceImpl implements BoardService {
   @Autowired
   BoardRepository boardRepository;
 
-
   @Override
   public Board getBoardByCategory(String category) {
     return boardRepository.findByCategory(category);
+  }
+
+  @Override
+  public Board saveBoard(Board board) {
+    return boardRepository.save(board);
   }
 }

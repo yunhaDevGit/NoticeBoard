@@ -44,7 +44,7 @@ class PostControllerTest {
   @Test
   void getUserPost() {
     User user = new User();
-    user.setId("user");
+    user.setId("user01");
     user.setUsername("user01");
     List<Post> posts = postService.getUserPost(user);
     for (Post post : posts) {
@@ -58,7 +58,7 @@ class PostControllerTest {
     User user = userRepository.findByUsername("user01");
 
     Board board = new Board();
-    board.setCategory("FreeBoard");
+    board.setCategory("free");
 
     Post post = new Post();
     post.setId(String.valueOf(UUID.randomUUID()));
