@@ -14,4 +14,6 @@ public interface PostService {
   List<Post> getUserPost(User user);
 
   Post savePost(Post post);
+
+  void deletePost(String id);
 }

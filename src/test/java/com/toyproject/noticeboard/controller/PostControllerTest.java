@@ -72,4 +72,12 @@ class PostControllerTest {
 
     postService.savePost(post);
   }
+
+  @Test
+  void deletePost() {
+    List<Post> postList = postService.getPostList();
+    Post post = postList.get(0);
+    String id = post.getId();
+    postService.deletePost(id);
+  }
 }

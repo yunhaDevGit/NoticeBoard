@@ -45,4 +45,9 @@ public class PostServiceImpl implements PostService {
     post.setBoard(board);
     return postRepository.save(post);
   }
+
+  @Override
+  public void deletePost(String id) {
+    postRepository.deleteById(id);
+  }
 }
