@@ -9,4 +9,8 @@ public interface BoardService {
   Board getBoardByCategory(String category);
 
   Board saveBoard(Board board);
+
+  void deleteBoard(String id);
+
+  List<Board> getBoardList();
 }

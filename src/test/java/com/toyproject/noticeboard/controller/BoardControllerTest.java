@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @SpringBootTest
 class BoardControllerTest {
@@ -24,6 +25,13 @@ class BoardControllerTest {
 
   @Autowired
   UserRepository userRepository;
+
+  @Test
+  public void getBoardList(){
+    List<Board> boards = boardService.getBoardList();
+    for(Board board:boards)
+      System.out.println(board);
+  }
 
   @Test
   public void newBoard(){
