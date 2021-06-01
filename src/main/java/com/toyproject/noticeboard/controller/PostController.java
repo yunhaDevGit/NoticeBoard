@@ -22,13 +22,13 @@ public class PostController {
   PostRepository postRepository;
 
 
-  @GetMapping("/list/all")
+  @GetMapping("/post/list")
   @ResponseBody
   public List<Post> getPostList(){
     return postService.getPostList();
   }
 
-  @GetMapping("/list/{category}")
+  @GetMapping("/post/list/{category}")
   @ResponseBody
   public List<Post> getPostListInCategory(@PathVariable String category){
     Board board = new Board();
@@ -37,19 +37,19 @@ public class PostController {
     return postService.getPostListInCategory(board);
   }
 
-  @GetMapping("/list/user/post")
+  @GetMapping("/post/list/user")
   @ResponseBody
   public List<Post> getUserPost(Authentication authentication){
     PrincipalDetails principal = (PrincipalDetails) authentication.getPrincipal();
     return postService.getUserPost(principal.getUser());
   }
 
-  @GetMapping("/write")
+  @GetMapping("/post/write")
   public String write(){
     return "write";
   }
 
-  @PostMapping("/post")
+  @PostMapping("/post/write")
   @ResponseBody
   public Post postBoard(Post post, Authentication authentication){
     PrincipalDetails user = (PrincipalDetails) authentication.getPrincipal();
@@ -65,4 +65,15 @@ public class PostController {
     postService.deletePost(id);
   }
 
+  @GetMapping("/page/admin")
+  @ResponseBody
+  public String adminPage(){
+    return "관리자 페이지";
+  }
+
+  @GetMapping("/page/manager")
+  @ResponseBody
+  public String managerPage(){
+    return "매니저 페이지";
+  }
 }

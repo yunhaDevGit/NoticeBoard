@@ -3,7 +3,6 @@ package com.toyproject.noticeboard.controller;
 import com.toyproject.noticeboard.service.UserService;
 import com.toyproject.noticeboard.utils.Role;
 import com.toyproject.noticeboard.model.User;
-import com.toyproject.noticeboard.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
