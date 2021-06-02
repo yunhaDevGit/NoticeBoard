@@ -3,7 +3,6 @@ package com.toyproject.noticeboard.controller;
 import com.toyproject.noticeboard.config.auth.PrincipalDetails;
 import com.toyproject.noticeboard.model.Board;
 import com.toyproject.noticeboard.model.Post;
-import com.toyproject.noticeboard.repository.PostRepository;
 import com.toyproject.noticeboard.service.PostService;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -18,8 +17,6 @@ public class PostController {
 
   @Autowired
   PostService postService;
-  @Autowired
-  PostRepository postRepository;
 
 
   @GetMapping("/post/list")
