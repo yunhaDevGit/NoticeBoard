@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import lombok.Data;
@@ -29,11 +30,15 @@ public class Comment {
   private User user;
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "comment_id")
+  @JoinColumn(name = "parent_id")
   private Comment parent;
 
   @OneToMany(mappedBy = "parent", orphanRemoval = true)
   private List<Comment> children = new ArrayList<>();
+
+  @Column(nullable = false)
+  @Lob
+  private String content;
 
   private LocalDateTime createdAt;
   private LocalDateTime updateAt;
