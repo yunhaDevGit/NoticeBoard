@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns="http://www.thymeleaf.org">
 <html>
 <head>
   <meta charset="UTF-8">
@@ -13,6 +13,11 @@
   <input type="password" name="password" placeholder="Password"/></br>
   <input type="email" name="email" placeholder="email@example.com"/></br>
   <input type="text" name="contact" placeholder="010-xxxx-xxxx"/></br>
+
+  <label><input type="radio" name="role" th:value="${T(com.toyproject.noticeboard.utils.Role).ROLE_USER}">사용자</label>
+  <label><input type="radio" name="role" th:value="${T(com.toyproject.noticeboard.utils.Role).ROLE_MANAGER}">매니저</label>
+  <label><input type="radio" name="role" th:value="${T(com.toyproject.noticeboard.utils.Role).ROLE_ADMIN}">관리자</label><br/><br/>
+
   <button>회원가입</button>
 </form>
 </body>

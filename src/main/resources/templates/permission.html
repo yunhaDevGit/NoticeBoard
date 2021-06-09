@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>give permission page</title>
+</head>
+<body>
+<h1>권한 설정 페이지입니다</h1>
+<form action="/permission" method="POST">
+  <label><input type="radio" name="role" value="Role.ROLE_USER">사용자</label>
+  <label><input type="radio" name="role" value="Role.ROLE_MANAGER">매니저</label>
+  <label><input type="radio" name="role" value="Role.ROLE_ADMIN">관리자</label>
+
+  <button>회원가입</button>
+</form>
+</body>
+</html>
