@@ -4,6 +4,7 @@ import com.toyproject.noticeboard.config.auth.PrincipalDetails;
 import com.toyproject.noticeboard.service.UserService;
 import com.toyproject.noticeboard.utils.Role;
 import com.toyproject.noticeboard.model.User;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -37,6 +38,7 @@ public class LoginController {
     return "joinForm";
   }
 
+  @ApiOperation(value = "사용자 등록", notes = "사용자 정보를 입력하여 사용자를 생성합니다")
   @PostMapping("/join")
   public String join(User user) {
     user.setPassword(passwordEncoder.encode(user.getPassword()));
