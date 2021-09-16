@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface PostRepository extends JpaRepository<Post, String> {
 
+  Post getById(String id);
+
   List<Post> findAll();
 
   List<Post> findByBoard(Board board);

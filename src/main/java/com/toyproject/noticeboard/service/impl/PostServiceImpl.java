@@ -21,6 +21,11 @@ public class PostServiceImpl implements PostService {
   BoardService boardService;
 
   @Override
+  public Post getPostById(String id) {
+    return postRepository.getById(id);
+  }
+
+  @Override
   public List<Post> getPostList() {
     return postRepository.findAll();
   }

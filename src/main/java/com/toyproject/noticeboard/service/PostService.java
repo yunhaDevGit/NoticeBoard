@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface PostService {
 
+  Post getPostById(String id);
+
   List<Post> getPostList();
 
   List<Post> getPostListInCategory(Board board);
